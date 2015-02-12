@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacMan", "PacMan\PacMan\PacMan.csproj", "{E61C9525-9D87-4E28-A7E4-D342F77363AE}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PacManContent", "PacMan\PacManContent\PacManContent.contentproj", "{322E7FB3-940F-4080-9070-C06B04FC00D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E61C9525-9D87-4E28-A7E4-D342F77363AE}.Debug|x86.ActiveCfg = Debug|x86
+		{E61C9525-9D87-4E28-A7E4-D342F77363AE}.Debug|x86.Build.0 = Debug|x86
+		{E61C9525-9D87-4E28-A7E4-D342F77363AE}.Release|x86.ActiveCfg = Release|x86
+		{E61C9525-9D87-4E28-A7E4-D342F77363AE}.Release|x86.Build.0 = Release|x86
+		{322E7FB3-940F-4080-9070-C06B04FC00D5}.Debug|x86.ActiveCfg = Debug|x86
+		{322E7FB3-940F-4080-9070-C06B04FC00D5}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
