@@ -18,6 +18,8 @@ namespace PacMan
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Vector2 mPosition = new Vector2(0, 0);
+        Texture2D mSpriteTexture;
 
         public Game1()
         {
@@ -46,6 +48,9 @@ namespace PacMan
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // TODO: use this.Content to load your game content here
+            mSpriteTexture = this.Content.Load<Texture2D>("Pacman");
 
             // TODO: use this.Content to load your game content here
         }
@@ -84,6 +89,9 @@ namespace PacMan
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            spriteBatch.Draw(mSpriteTexture, mPosition, Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

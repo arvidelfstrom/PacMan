@@ -1,0 +1,7 @@
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\bin\x86\Debug\PacMan.exe
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\bin\x86\Debug\PacMan.pdb
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\obj\x86\Debug\PacMan.csprojResolveAssemblyReference.cache
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\obj\x86\Debug\PacMan.exe
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\obj\x86\Debug\PacMan.pdb
+C:\Users\Marco Koivisto\Documents\GitHub\PacMan\PacMan\PacMan\bin\x86\Debug\Content\Pacman.xnb
