@@ -39,7 +39,9 @@ namespace PacMan
             Texture2D texture = MainGame.textures[name];
             float rotation = speed.X > 0 ? 0: speed.Y > 0 ? (float)(Math.PI / 2): SpeedY < 0 ? (float)(Math.PI + Math.PI / 2): (float)(Math.PI);
 
-            spriteBatch.Draw(texture, coords, null, Color.White, rotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            
+
+            spriteBatch.Draw(texture, coords, null, Color.White, rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
         }
 
         public float X { get { return coords.X; } }
