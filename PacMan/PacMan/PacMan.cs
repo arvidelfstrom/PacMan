@@ -23,6 +23,14 @@ namespace PacMan
             base.update(window);
         }
 
+        public override void drawEntity(SpriteBatch spriteBatch)
+        {
+            Texture2D texture = MainGame.textures[name];
+            float rotation = SpeedX > 0 ? 0 : SpeedY > 0 ? (float)(Math.PI / 2) : SpeedY < 0 ? (float)(Math.PI + Math.PI / 2) : (float)(Math.PI);
+
+            spriteBatch.Draw(texture, coords, null, Color.White, rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
+        }
+
         private void handleKeyboard() {
             KeyboardState state = Keyboard.GetState();
 
