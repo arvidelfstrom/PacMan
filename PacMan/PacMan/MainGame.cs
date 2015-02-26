@@ -25,6 +25,7 @@ namespace PacMan
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            textures = new Dictionary<string,Texture2D>();
         }
 
         /// <summary>
@@ -90,9 +91,11 @@ namespace PacMan
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
 
             pacMan.drawEntity(spriteBatch);
             // TODO: Add your drawing code here
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

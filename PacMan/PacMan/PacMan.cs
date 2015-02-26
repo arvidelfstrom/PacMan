@@ -15,7 +15,7 @@ namespace PacMan
 
         }
 
-        public void update(GameWindow window) {
+        public override void update(GameWindow window) {
             handleKeyboard();
 
             base.update(window);

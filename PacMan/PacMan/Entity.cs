@@ -31,7 +31,7 @@ namespace PacMan
         {
         }
 
-        public void update(GameWindow window) {
+        public virtual void update(GameWindow window) {
             this.coords += this.speed;
         }
 
