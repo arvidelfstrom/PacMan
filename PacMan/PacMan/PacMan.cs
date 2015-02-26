@@ -18,6 +18,8 @@ namespace PacMan
         public override void update(GameWindow window) {
             handleKeyboard();
 
+            //TODO handle collision
+
             base.update(window);
         }
 
@@ -27,11 +29,25 @@ namespace PacMan
             if (state.IsKeyDown(Keys.A) || state.IsKeyDown(Keys.Left))
             {
                 SpeedX = -2F;
+                SpeedY = 0F;
             }
 
             if (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right))
             {
                 SpeedX = 2F;
+                SpeedY = 0F;
+            }
+
+            if (state.IsKeyDown(Keys.W) || state.IsKeyDown(Keys.Up))
+            {
+                SpeedX = 0F;
+                SpeedY = -2F;
+            }
+
+            if (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down))
+            {
+                SpeedX = 0F;
+                SpeedY = 2F;
             }
         }
 

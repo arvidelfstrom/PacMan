@@ -37,7 +37,7 @@ namespace PacMan
 
         public void drawEntity(SpriteBatch spriteBatch) {
             Texture2D texture = MainGame.textures[name];
-            spriteBatch.Draw(texture, coords, Color.White);
+            spriteBatch.Draw(texture, coords, null, Color.White, (float)(Math.PI / 2F), Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         public float X { get { return coords.X; } }
