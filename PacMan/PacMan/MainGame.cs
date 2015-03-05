@@ -19,6 +19,7 @@ namespace PacMan
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Entity pacMan;
+        public static Collision collision;
         public static Dictionary<String, Texture2D> textures;
 
         public MainGame()
@@ -26,6 +27,7 @@ namespace PacMan
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             textures = new Dictionary<string,Texture2D>();
+            collision = new Collision();
         }
 
         /// <summary>
@@ -80,6 +82,8 @@ namespace PacMan
 
             // TODO: Add your update logic here
             pacMan.update(Window);
+            
+            collision.checkCollisions();
 
             base.Update(gameTime);
         }

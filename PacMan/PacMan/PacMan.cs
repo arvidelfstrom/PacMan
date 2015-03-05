@@ -9,12 +9,21 @@ namespace PacMan
 {
     class PacMan : Entity
     {
-
-        public PacMan(String name, float x, float y): base(name, x, y, new Vector2(0, 0), 48, 48)
+        /// <summary>
+        /// Initialize the PacMan
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public PacMan(String name, float x, float y) : base(name, x, y, new Vector2(0, 0), 48, 48)
         {
-
+            // Do nothing
         }
 
+        /// <summary>
+        /// Game logic, handle keyboard presses etc.
+        /// </summary>
+        /// <param name="window"></param>
         public override void update(GameWindow window) {
             handleKeyboard();
 
@@ -23,6 +32,10 @@ namespace PacMan
             base.update(window);
         }
 
+        /// <summary>
+        /// Draw PacMan on screen
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public override void drawEntity(SpriteBatch spriteBatch)
         {
             Texture2D texture = MainGame.textures[name];
@@ -31,6 +44,9 @@ namespace PacMan
             spriteBatch.Draw(texture, coords, null, Color.White, rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, SpriteEffects.None, 0f);
         }
 
+        /// <summary>
+        /// Handle keyboard presses
+        /// </summary>
         private void handleKeyboard() {
             KeyboardState state = Keyboard.GetState();
 
