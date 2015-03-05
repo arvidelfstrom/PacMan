@@ -11,19 +11,15 @@ namespace PacMan
         protected String name;
         protected Vector2 coords;
         private Vector2 speed;
+        private Rectangle collisionBox;
 
-        public Entity(String name, Vector2 coords, Vector2 speed)
+        public Entity(String name, float x, float y, Vector2 speed, int width, int height)
         {
             this.name = name;
-            this.coords = coords;
+            this.coords = new Vector2(x, y);
             this.speed = speed;
+            this.collisionBox = new Rectangle((int)x, (int)y, width, height);
         }
-
-        public Entity(String name, float y, float x, Vector2 speed): this(name, new Vector2(x, y), speed) {}
-
-        public Entity(String name, float y, float x): this(name, new Vector2(x, y), new Vector2(2F, 0)) {}
-
-        public Entity(String name, Vector2 coords): this(name, coords, new Vector2(2F, 0)) {}
 
         public virtual void update(GameWindow window) {
             this.coords += this.speed;
@@ -32,6 +28,15 @@ namespace PacMan
         public virtual void drawEntity(SpriteBatch spriteBatch) {
             Texture2D texture = MainGame.textures[name];
             spriteBatch.Draw(texture, coords, Color.White);
+        }
+
+        /// <summary>
+        /// Triggered when this object collides with another one.
+        /// </summary>
+        /// <param name="entity"></param>
+        public virtual void onCollision(Entity entity)
+        {
+            // Collided!
         }
         
         public float X { get { return coords.X; } }

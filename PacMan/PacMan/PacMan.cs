@@ -10,7 +10,7 @@ namespace PacMan
     class PacMan : Entity
     {
 
-        public PacMan(String name, float x, float y): base(name, x, y, new Vector2(0, 0))
+        public PacMan(String name, float x, float y): base(name, x, y, new Vector2(0, 0), 48, 48)
         {
 
         }
