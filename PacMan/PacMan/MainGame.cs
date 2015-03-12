@@ -18,7 +18,9 @@ namespace PacMan
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Entity pacMan;
+        PacMan pacMan;
+        Coin coin;
+        Cherry cherry;
         public static Dictionary<String, Texture2D> textures;
 
         public MainGame()
@@ -52,9 +54,12 @@ namespace PacMan
             
             //Load all images
             textures.Add("pacman", this.Content.Load<Texture2D>("pacman"));
-
+            textures.Add("coin", this.Content.Load<Texture2D>("coin"));
+            textures.Add("cherry", this.Content.Load<Texture2D>("cherry"));
 
             pacMan = new PacMan("pacman", 200, 200);
+            cherry = new Cherry("cherry", 400, 300);
+            coin = new Coin("coin", 300, 400);
             // TODO: use this.Content to load your game content here
         }
 
@@ -80,6 +85,8 @@ namespace PacMan
 
             // TODO: Add your update logic here
             pacMan.update(Window);
+            cherry.update(Window);
+            coin.update(Window);
 
             base.Update(gameTime);
         }
@@ -94,6 +101,13 @@ namespace PacMan
             spriteBatch.Begin();
 
             pacMan.drawEntity(spriteBatch);
+            // TODO: Add your drawing code here
+
+            cherry.drawEntity(spriteBatch);
+            // TODO: Add your drawing code here
+
+            coin.drawEntity(spriteBatch);
+
             // TODO: Add your drawing code here
             spriteBatch.End();
 
