@@ -19,8 +19,10 @@ namespace PacMan
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Entity pacMan;
-        public Collision collision;
+        Entity coin;
+        Entity cherry;
         public static Dictionary<String, Texture2D> textures;
+        public Collision collision;
 
         public MainGame()
         {
@@ -52,16 +54,25 @@ namespace PacMan
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            //Load all images
+            // Load all images
             textures.Add("pacman", this.Content.Load<Texture2D>("pacman"));
+            textures.Add("coin", this.Content.Load<Texture2D>("coin"));
+            textures.Add("cherry", this.Content.Load<Texture2D>("cherry"));
 
+            // Create all objects
             pacMan = new PacMan("pacman", 200, 200);
+
+            // Example content
+            cherry = new Cherry("cherry", 400, 300);
+            coin = new Coin("coin", 300, 400);
             
             // Add entities to collision detection
             this.collision.link(ref pacMan);
+            this.collision.link(ref cherry);
+            this.collision.link(ref coin);
 
+            // Example wall collision box
             this.collision.addWall(new Rectangle(0, 0, 800, 50));
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -86,6 +97,8 @@ namespace PacMan
 
             // TODO: Add your update logic here
             pacMan.update(Window);
+            cherry.update(Window);
+            coin.update(Window);
             
             collision.checkCollisions();
 
@@ -102,6 +115,13 @@ namespace PacMan
             spriteBatch.Begin();
 
             pacMan.drawEntity(spriteBatch);
+            // TODO: Add your drawing code here
+
+            cherry.drawEntity(spriteBatch);
+            // TODO: Add your drawing code here
+
+            coin.drawEntity(spriteBatch);
+
             // TODO: Add your drawing code here
             spriteBatch.End();
 
