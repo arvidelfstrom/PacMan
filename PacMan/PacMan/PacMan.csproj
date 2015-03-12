@@ -72,8 +72,9 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cherry.cs" />
+<Compile Include="Cherry.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="Collision.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="PacMan.cs" />

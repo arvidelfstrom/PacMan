@@ -5,6 +5,9 @@ Pillren finns utspridda över hela spelplanen och spelnivån är avklarad då al
 
 Till spelet ska även en startmeny samt en highscore-lista finnas. Startmenyn ska innehålla knapparna"Start", "Highscore", och "Quit".
 
+## Vad ska göras?
+Kolla under [issues](https://github.com/TEINF12A/PacMan/issues).
+
 ## Klassdiagram
 Diagram över *"Entity"* polymorfism.
 ![Klassdiagram](https://raw.githubusercontent.com/TEINF12A/PacMan/master/entity-uml-polymorphism.png) 

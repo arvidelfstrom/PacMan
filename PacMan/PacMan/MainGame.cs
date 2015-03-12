@@ -21,6 +21,7 @@ namespace PacMan
         PacMan pacMan;
         Coin coin;
         Cherry cherry;
+        public static Collision collision;
         public static Dictionary<String, Texture2D> textures;
 
         public MainGame()
@@ -28,6 +29,7 @@ namespace PacMan
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             textures = new Dictionary<string,Texture2D>();
+            collision = new Collision();
         }
 
         /// <summary>
@@ -87,6 +89,8 @@ namespace PacMan
             pacMan.update(Window);
             cherry.update(Window);
             coin.update(Window);
+            
+            collision.checkCollisions();
 
             base.Update(gameTime);
         }
