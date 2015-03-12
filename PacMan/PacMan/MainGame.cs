@@ -19,7 +19,7 @@ namespace PacMan
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Entity pacMan;
-        public static Collision collision;
+        public Collision collision;
         public static Dictionary<String, Texture2D> textures;
 
         public MainGame()
@@ -55,8 +55,12 @@ namespace PacMan
             //Load all images
             textures.Add("pacman", this.Content.Load<Texture2D>("pacman"));
 
-
             pacMan = new PacMan("pacman", 200, 200);
+            
+            // Add entities to collision detection
+            this.collision.link(ref pacMan);
+
+            this.collision.addWall(new Rectangle(0, 0, 800, 50));
             // TODO: use this.Content to load your game content here
         }
 

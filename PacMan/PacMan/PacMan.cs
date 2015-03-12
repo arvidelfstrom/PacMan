@@ -25,6 +25,8 @@ namespace PacMan
         /// </summary>
         /// <param name="window"></param>
         public override void update(GameWindow window) {
+            if (!IsAlive) return;
+
             handleKeyboard();
 
             //TODO handle collision
@@ -38,6 +40,8 @@ namespace PacMan
         /// <param name="spriteBatch"></param>
         public override void drawEntity(SpriteBatch spriteBatch)
         {
+            if (!IsAlive) return;
+
             Texture2D texture = MainGame.textures[name];
             float rotation = SpeedX > 0 ? 0 : SpeedY > 0 ? (float)(Math.PI / 2) : SpeedY < 0 ? (float)(Math.PI + Math.PI / 2) : (float)(Math.PI);
 
@@ -47,7 +51,8 @@ namespace PacMan
         /// <summary>
         /// Handle keyboard presses
         /// </summary>
-        private void handleKeyboard() {
+        private void handleKeyboard()
+        {
             KeyboardState state = Keyboard.GetState();
 
             if (state.IsKeyDown(Keys.A) || state.IsKeyDown(Keys.Left))
@@ -75,5 +80,22 @@ namespace PacMan
             }
         }
 
+        /// <summary>
+        /// PacMan collides with another entity
+        /// </summary>
+        /// <param name="entity"></param>
+        public override void onCollision(Entity entity)
+        {
+
+        }
+
+        /// <summary>
+        /// PacMan collides with a wall
+        /// </summary>
+        /// <param name="wall"></param>
+        public override void onCollision(Rectangle wall)
+        {
+            IsAlive = false;
+        }
     }
 }

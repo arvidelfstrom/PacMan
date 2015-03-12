@@ -15,6 +15,8 @@ namespace PacMan
         protected Vector2 coords;
         private Vector2 speed;
         private Rectangle collisionBox;
+        private Boolean didCollide;
+        private Boolean isAlive;
 
         // Getters and setters
         public float X { get { return coords.X; } }
@@ -25,6 +27,8 @@ namespace PacMan
         public float Height { get { return MainGame.textures[name].Height; } }
         public String Name { get { return name; } }
         public Rectangle CollisionBox { get { return collisionBox; } }
+        public Boolean DidCollide { get { return didCollide; } set { didCollide = value;  } }
+        public Boolean IsAlive { get { return isAlive; } set { isAlive = value;  } }
 
         /// <summary>
         /// Create a new entity object
@@ -40,9 +44,9 @@ namespace PacMan
             this.name = name;
             this.coords = new Vector2(x, y);
             this.speed = speed;
+            this.didCollide = false;
             this.collisionBox = new Rectangle((int)x, (int)y, width, height);
-
-            //MainGame.collision.link(ref this); todo, skicka this som ref
+            this.isAlive = true;
         }
 
         /// <summary>
@@ -50,9 +54,13 @@ namespace PacMan
         /// </summary>
         /// <param name="window"></param>
         public virtual void update(GameWindow window) {
-            this.coords += this.speed;
+            // Don't update if the entity is dead
+            if (!isAlive) return;
 
-        
+            this.coords += this.speed;
+            this.collisionBox.X = (int)this.coords.X;
+            this.collisionBox.Y = (int)this.coords.Y;
+            
         }
 
         /// <summary>
@@ -60,17 +68,29 @@ namespace PacMan
         /// </summary>
         /// <param name="spriteBatch"></param>
         public virtual void drawEntity(SpriteBatch spriteBatch) {
+            // Don't draw if the entity is dead
+            if (!isAlive) return;
+
             Texture2D texture = MainGame.textures[name];
             spriteBatch.Draw(texture, coords, Color.White);
         }
 
         /// <summary>
-        /// Triggered when this object collides with another one.
+        /// Triggered when this entity collides with another entity.
         /// </summary>
         /// <param name="entity"></param>
         public virtual void onCollision(Entity entity)
         {
-            // Collided!
+            // Collided with an entity!
+        }
+
+        /// <summary>
+        /// Triggered when this entity collides with a wall
+        /// </summary>
+        /// <param name="wall"></param>
+        public virtual void onCollision(Rectangle wall)
+        {
+            // Collided with a wall!
         }
     }
 }
