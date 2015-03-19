@@ -10,7 +10,7 @@ namespace PacMan
     class Coin : Entity
     {
 
-        public Coin(String name, float x, float y): base(name, x, y, new Vector2(0, 0), 22, 21)
+        public Coin(String name, float x, float y): base(name, x, y, new Vector2(0, 0), 20, 20)
         {
 
         }
@@ -40,6 +40,7 @@ namespace PacMan
             if (entity.Name == "pacman")
             {
                 IsAlive = false;
+                MainGame.score.addScore(1);
             }
         }
     }

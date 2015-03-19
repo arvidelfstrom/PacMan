@@ -23,6 +23,7 @@ namespace PacMan
         Entity cherry;
         public static Dictionary<String, Texture2D> textures;
         public Collision collision;
+        public static Score score;
 
         public MainGame()
         {
@@ -73,6 +74,8 @@ namespace PacMan
 
             // Example wall collision box
             this.collision.addWall(new Rectangle(0, 0, 800, 50));
+
+            score = new Score(Content.Load<SpriteFont>("Score"));
         }
 
         /// <summary>
@@ -123,6 +126,8 @@ namespace PacMan
             coin.drawEntity(spriteBatch);
 
             // TODO: Add your drawing code here
+            score.drawEntity(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);

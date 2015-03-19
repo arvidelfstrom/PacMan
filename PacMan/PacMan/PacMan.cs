@@ -15,7 +15,7 @@ namespace PacMan
         /// <param name="name"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public PacMan(String name, float x, float y) : base(name, x, y, new Vector2(0, 0), 48, 48)
+        public PacMan(String name, float x, float y) : base(name, x, y, new Vector2(0, 0), 40, 43)
         {
             // Do nothing
         }

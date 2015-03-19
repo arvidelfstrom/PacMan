@@ -69,7 +69,9 @@ namespace PacMan
                     if (entity1 != entity2
                         && entity1.CollisionBox.Intersects(entity2.CollisionBox)
                         && !entity1.DidCollide
-                        && !entity2.DidCollide)
+                        && !entity2.DidCollide
+                        && entity1.IsAlive
+                        && entity2.IsAlive)
                     {
                         entity1.DidCollide = true;
                         entity2.DidCollide = true;
