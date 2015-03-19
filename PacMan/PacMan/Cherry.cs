@@ -39,7 +39,7 @@ namespace PacMan
             if (entity.Name == "pacman")
             {
                 IsAlive = false;
-                MainGame.score.addScore(5);
+                MainGame.score.addScore(100);
             }
         }
     }
