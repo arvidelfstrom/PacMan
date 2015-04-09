@@ -21,6 +21,7 @@ namespace PacMan
         Entity pacMan;
         Entity coin;
         Entity cherry;
+        Entity enemy;
         public static Dictionary<String, Texture2D> textures;
         public Collision collision;
         public static Score score;
@@ -59,18 +60,22 @@ namespace PacMan
             textures.Add("pacman", this.Content.Load<Texture2D>("pacman"));
             textures.Add("coin", this.Content.Load<Texture2D>("coin"));
             textures.Add("cherry", this.Content.Load<Texture2D>("cherry"));
-
+            textures.Add("enemy", this.Content.Load<Texture2D>("enemy"));
+            
             // Create all objects
             pacMan = new PacMan("pacman", 200, 200);
 
             // Example content
             cherry = new Cherry("cherry", 400, 300);
             coin = new Coin("coin", 300, 400);
+
+            enemy = new Enemy("enemy", 200, 400);
             
             // Add entities to collision detection
             this.collision.link(ref pacMan);
             this.collision.link(ref cherry);
             this.collision.link(ref coin);
+            this.collision.link(ref enemy);
 
             // Example wall collision box
             this.collision.addWall(new Rectangle(0, 0, 800, 50));
@@ -102,6 +107,7 @@ namespace PacMan
             pacMan.update(Window);
             cherry.update(Window);
             coin.update(Window);
+            enemy.update(Window);
             
             collision.checkCollisions();
 
@@ -124,6 +130,8 @@ namespace PacMan
             // TODO: Add your drawing code here
 
             coin.drawEntity(spriteBatch);
+
+            enemy.drawEntity(spriteBatch);
 
             // TODO: Add your drawing code here
             score.drawEntity(spriteBatch);

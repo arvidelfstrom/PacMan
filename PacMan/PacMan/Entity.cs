@@ -72,7 +72,7 @@ namespace PacMan
             if (!isAlive) return;
 
             Texture2D texture = MainGame.textures[name];
-            spriteBatch.Draw(texture, coords, Color.White)
+            spriteBatch.Draw(texture, coords, Color.White);
 
             // todo: draw hitbox rectangle
         }
