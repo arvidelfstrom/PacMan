@@ -18,11 +18,35 @@ namespace PacMan
         public override void update(GameWindow window)
         {
 
-            //TODO handle collision
+            if (this.coords.X > MainGame.Instance.PacMan.X)
+            {
+                this.SpeedX = -1;
+            }
+            else
+            {
+                this.SpeedX = 1;
+            }
+
+            if (this.coords.Y > MainGame.Instance.PacMan.Y)
+            {
+                this.SpeedY = -1;
+            }
+            else
+            {
+                this.SpeedY = 1;
+            }
 
             base.update(window);
         }
 
+        public override void onCollision(Entity entity)
+        {
+            if (entity.Name == "pacman")
+            {
+                IsAlive = false;
+                MainGame.Instance.Lost();
+            }
+         }
         public override void drawEntity(SpriteBatch spriteBatch) 
         {
             if (!IsAlive) return;

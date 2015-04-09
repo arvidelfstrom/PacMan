@@ -25,13 +25,28 @@ namespace PacMan
         public static Dictionary<String, Texture2D> textures;
         public Collision collision;
         public static Score score;
+        bool lost;
+        static MainGame instance;
+        public static MainGame Instance {
+            get { return instance; }
+        }
+        public Entity PacMan {
+            get { return pacMan; }
+        }
 
         public MainGame()
         {
+            instance = this;
+            lost = false;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             textures = new Dictionary<string,Texture2D>();
             collision = new Collision();
+        }
+
+        public void Lost()
+        {
+            this.lost = true;
         }
 
         /// <summary>
@@ -123,18 +138,26 @@ namespace PacMan
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            pacMan.drawEntity(spriteBatch);
-            // TODO: Add your drawing code here
+            if (lost)
+            {
+                //Skriv Lost Text här!
+            }
+            else
+            {
 
-            cherry.drawEntity(spriteBatch);
-            // TODO: Add your drawing code here
+                pacMan.drawEntity(spriteBatch);
+                // TODO: Add your drawing code here
 
-            coin.drawEntity(spriteBatch);
+                cherry.drawEntity(spriteBatch);
+                // TODO: Add your drawing code here
 
-            enemy.drawEntity(spriteBatch);
+                coin.drawEntity(spriteBatch);
 
-            // TODO: Add your drawing code here
-            score.drawEntity(spriteBatch);
+                enemy.drawEntity(spriteBatch);
+
+                // TODO: Add your drawing code here
+                score.drawEntity(spriteBatch);
+            }
 
             spriteBatch.End();
 
